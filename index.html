@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Uganda - The Good. The Bad. The Real.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-image {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1566438480900-0609be27a4be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1790&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+        }
+        .map-container {
+            position: relative;
+            overflow: hidden;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        }
+        .map-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .gallery-item {
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .stats-card {
+            transition: all 0.3s ease;
+        }
+        .stats-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-green-800 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-mountain-sun text-2xl"></i>
+                <a href="#" class="text-xl font-bold">Explore Uganda</a>
+                <span class="text-sm hidden md:block">The Good. The Bad. The Real.</span>
+            </div>
+            
+            <div class="hidden md:flex space-x-6">
+                <a href="#home" class="hover:text-yellow-300">Home</a>
+                <a href="#geography" class="hover:text-yellow-300">Geography</a>
+                <a href="#government" class="hover:text-yellow-300">Government</a>
+                <a href="#people" class="hover:text-yellow-300">People</a>
+                <a href="#culture" class="hover:text-yellow-300">Culture</a>
+                <a href="#tourism" class="hover:text-yellow-300">Tourism</a>
+                <a href="#wildlife" class="hover:text-yellow-300">Wildlife</a>
+            </div>
+            
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-green-700 px-4 py-2">
+            <a href="#home" class="block py-2 hover:text-yellow-300">Home</a>
+            <a href="#geography" class="block py-2 hover:text-yellow-300">Geography</a>
+            <a href="#government" class="block py-2 hover:text-yellow-300">Government</a>
+            <a href="#people" class="block py-2 hover:text-yellow-300">People</a>
+            <a href="#culture" class="block py-2 hover:text-yellow-300">Culture</a>
+            <a href="#tourism" class="block py-2 hover:text-yellow-300">Tourism</a>
+            <a href="#wildlife" class="block py-2 hover:text-yellow-300">Wildlife</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-image flex items-center justify-center text-white">
+        <div class="text-center px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Explore Uganda</h1>
+            <p class="text-xl md:text-2xl mb-8">The Good. The Bad. The Real.</p>
+            <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto">Welcome to the most honest, up-to-date, and in-depth directory about Uganda — its nature, culture, people, and realities.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#geography" class="bg-yellow-500 hover:bg-yellow-600 text-green-900 font-bold py-3 px-6 rounded-lg flex items-center">
+                    <i class="fas fa-mountain mr-2"></i> Nature
+                </a>
+                <a href="#government" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg flex items-center">
+                    <i class="fas fa-landmark mr-2"></i> Government
+                </a>
+                <a href="#culture" class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-6 rounded-lg flex items-center">
+                    <i class="fas fa-masks-theater mr-2"></i> Culture
+                </a>
+                <a href="#people" class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg flex items-center">
+                    <i class="fas fa-users mr-2"></i> People
+                </a>
+                <a href="#wildlife" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg flex items-center">
+                    <i class="fas fa-paw mr-2"></i> Wildlife
+                </a>
+                <a href="#challenges" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg flex items-center">
+                    <i class="fas fa-exclamation-triangle mr-2"></i> Challenges
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Bar -->
+    <section class="bg-white py-6 shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto relative">
+                <input type="text" placeholder="Search the Uganda directory..." class="w-full py-3 px-6 pr-12 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500">
+                <button class="absolute right-3 top-3 text-gray-500 hover:text-green-700">
+                    <i class="fas fa-search text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Geography Section -->
+    <section id="geography" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-green-800">Scenery & Geography</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-green-700">Uganda's Physical Landscape</h3>
+                    <p class="text-gray-700 mb-4">Uganda, often called the "Pearl of Africa," boasts diverse geographical features including the snow-capped Rwenzori Mountains, the vast Lake Victoria (Africa's largest lake), and the mighty Nile River which begins its journey from Jinja.</p>
+                    <p class="text-gray-700 mb-4">The country's landscape varies from tropical rainforests in the west to semi-arid savannas in the northeast, offering breathtaking scenery and unique ecosystems.</p>
+                    <div class="flex flex-wrap gap-2 mt-6">
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Mountains</span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Lakes</span>
+                        <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">Savannas</span>
+                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Forests</span>
+                        <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Volcanoes</span>
+                    </div>
+                </div>
+                <div class="map-container rounded-lg shadow-lg">
+                    <iframe class="map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4085986.123658496!2d30.738165375000003!3d1.373333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1771a69f6499f945%3A0x8746ce6f7a7e8582!2sUganda!5e0!3m2!1sen!2sus!4v1689876543210" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            
+            <h3 class="text-2xl font-semibold mb-6 text-center text-green-700">Must-Visit Natural Attractions</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 gallery-item">
+                    <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Bwindi Impenetrable Forest" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg mb-2">Bwindi Impenetrable Forest</h4>
+                        <p class="text-gray-600">Home to nearly half of the world's remaining mountain gorillas, this UNESCO World Heritage Site offers unforgettable gorilla trekking experiences.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 gallery-item">
+                    <img src="https://images.unsplash.com/photo-1570891836654-d4961a7b6929?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Murchison Falls" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg mb-2">Murchison Falls</h4>
+                        <p class="text-gray-600">Where the Nile River forces its way through a narrow gorge and plunges 43 meters, creating one of Africa's most powerful waterfalls.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 gallery-item">
+                    <img src="https://images.unsplash.com/photo-1602088113235-229c19758e9f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1067&q=80" alt="Queen Elizabeth National Park" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg mb-2">Queen Elizabeth NP</h4>
+                        <p class="text-gray-600">Uganda's most visited park with diverse ecosystems including savanna, wetlands, and forests, famous for its tree-climbing lions.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 gallery-item">
+                    <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Lake Bunyonyi" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg mb-2">Lake Bunyonyi</h4>
+                        <p class="text-gray-600">Africa's second deepest lake, known as "the place of many little birds," with stunning terraced hills and 29 islands.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 gallery-item">
+                    <img src="https://images.unsplash.com/photo-1566438480900-0609be27a4be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1790&q=80" alt="Rwenzori Mountains" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg mb-2">Rwenzori Mountains</h4>
+                        <p class="text-gray-600">The fabled "Mountains of the Moon" with permanent snow and glaciers near the equator, offering challenging trekking routes.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 gallery-item">
+                    <img src="https://images.unsplash.com/photo-1581431886211-8b4c9fa914cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Jinja - Source of the Nile" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="font-bold text-lg mb-2">Jinja - Source of the Nile</h4>
+                        <p class="text-gray-600">Where the world's longest river begins its journey, offering white-water rafting, bungee jumping, and boat cruises.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Government Section -->
+    <section id="government" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-blue-800">Government & Politics</h2>
+            
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold mb-4 text-blue-700">Political Evolution</h3>
+                <p class="text-gray-700 mb-4">Uganda gained independence from Britain in 1962. Since then, the country has experienced political turbulence including coups, dictatorships, and civil wars before stabilizing in the late 1980s under the current government.</p>
+                <p class="text-gray-700">The political landscape has been dominated by the National Resistance Movement (NRM) since 1986, with President Yoweri Museveni serving as the head of state since then.</p>
+            </div>
+            
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold mb-4 text-blue-700">Structure of Government</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-blue-50 p-6 rounded-lg border border-blue-100">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-user-tie text-blue-600 text-xl"></i>
+                            </div>
+                            <h4 class="font-bold text-lg">Executive</h4>
+                        </div>
+                        <p class="text-gray-700">Headed by the President who is both head of state and government. The Cabinet is appointed by the President from among elected legislators.</p>
+                    </div>
+                    <div class="bg-blue-50 p-6 rounded-lg border border-blue-100">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-scale-balanced text-blue-600 text-xl"></i>
+                            </div>
+                            <h4 class="font-bold text-lg">Legislative</h4>
+                        </div>
+                        <p class="text-gray-700">The Parliament of Uganda is unicameral with 529 members. It includes representatives elected by universal suffrage and special interest groups.</p>
+                    </div>
+                    <div class="bg-blue-50 p-6 rounded-lg border border-blue-100">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-gavel text-blue-600 text-xl"></i>
+                            </div>
+                            <h4 class="font-bold text-lg">Judiciary</h4>
+                        </div>
+                        <p class="text-gray-700">Independent judiciary headed by the Chief Justice. The court system includes the Supreme Court, Court of Appeal, High Court, and magistrates' courts.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold mb-6 text-blue-700">Recent Presidents</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+                        <thead class="bg-blue-50">
+                            <tr>
+                                <th class="py-3 px-4 text-left">President</th>
+                                <th class="py-3 px-4 text-left">Term</th>
+                                <th class="py-3 px-4 text-left">Key Events</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr>
+                                <td class="py-3 px-4">Milton Obote</td>
+                                <td class="py-3 px-4">1962-1971</td>
+                                <td class="py-3 px-4">First post-independence leader, overthrown in coup</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="py-3 px-4">Idi Amin</td>
+                                <td class="py-3 px-4">1971-1979</td>
+                                <td class="py-3 px-4">Military dictatorship, human rights abuses</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4">Milton Obote</td>
+                                <td class="py-3 px-4">1980-1985</td>
+                                <td class="py-3 px-4">Returned to power, civil war</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="py-3 px-4">Yoweri Museveni</td>
+                                <td class="py-3 px-4">1986-present</td>
+                                <td class="py-3 px-4">Longest serving president, economic growth but criticized for democratic backsliding</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-2xl font-semibold mb-4 text-blue-700">Key Political Issues</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <h4 class="font-bold text-lg mb-2">Elections & Democracy</h4>
+                        <p class="text-gray-700">Recent elections have been marred by allegations of irregularities, internet shutdowns, and opposition suppression. Constitutional amendments have removed presidential age limits.</p>
+                    </div>
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <h4 class="font-bold text-lg mb-2">Corruption</h4>
+                        <p class="text-gray-700">Uganda ranks poorly on corruption indices, with public sector corruption affecting service delivery. Anti-corruption efforts have had limited success.</p>
+                    </div>
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <h4 class="font-bold text-lg mb-2">Human Rights</h4>
+                        <p class="text-gray-700">Controversial laws like the Anti-Homosexuality Act have drawn international condemnation. Restrictions on press freedom and assembly are ongoing concerns.</p>
+                    </div>
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <h4 class="font-bold text-lg mb-2">Regional Relations</h4>
+                        <p class="text-gray-700">Uganda plays key roles in regional peacekeeping but has tensions with neighbors over refugees, trade, and security issues.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- People Section -->
+    <section id="people" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-red-800">People, Income & Lifestyle</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-red-700">Demographics & Economy</h3>
+                    <p class="text-gray-700 mb-4">Uganda has one of the youngest and fastest-growing populations in the world, with a median age of 16.7 years. Over 78% of the population is under 30, presenting both opportunities and challenges for development.</p>
+                    <p class="text-gray-700">While the economy has grown steadily, wealth distribution remains uneven, with significant disparities between urban and rural areas.</p>
+                </div>
+                <div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="font-bold text-lg mb-4 text-center">Key Statistics</h4>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-red-600">45.7M</div>
+                                <div class="text-gray-600">Population (2023)</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-red-600">$1,100</div>
+                                <div class="text-gray-600">GDP per capita</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-red-600">21.4%</div>
+                                <div class="text-gray-600">Urban population</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-red-600">3.6%</div>
+                                <div class="text-gray-600">Unemployment rate</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold mb-6 text-red-700">Employment by Sector</h3>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="stats-card bg-white p-6 rounded-lg shadow-md text-center">
+                        <div class="text-red-500 text-4xl mb-3">
+                            <i class="fas fa-tractor"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">Agriculture</h4>
+                        <p class="text-gray-600">72% of workforce</p>
+                        <p class="text-sm text-gray-500 mt-2">Main crops: coffee, tea, cotton, maize</p>
+                    </div>
+                    <div class="stats-card bg-white p-6 rounded-lg shadow-md text-center">
+                        <div class="text-red-500 text-4xl mb-3">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">Industry</h4>
+                        <p class="text-gray-600">11% of workforce</p>
+                        <p class="text-sm text-gray-500 mt-2">Main sectors: construction, manufacturing</p>
+                    </div>
+                    <div class="stats-card bg-white p-6 rounded-lg shadow-md text-center">
+                        <div class="text-red-500 text-4xl mb-3">
+                            <i class="fas fa-concierge-bell"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">Services</h4>
+                        <p class="text-gray-600">17% of workforce</p>
+                        <p class="text-sm text-gray-500 mt-2">Main sectors: trade, transport, tourism</p>
+                    </div>
+                    <div class="stats-card bg-white p-6 rounded-lg shadow-md text-center">
+                        <div class="text-red-500 text-4xl mb-3">
+                            <i class="fas fa-motorcycle"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">Boda Bodas</h4>
+                        <p class="text-gray-600">1.2M riders</p>
+                        <p class="text-sm text-gray-500 mt-2">Key urban transport sector</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold mb-6 text-red-700">Urban vs Rural Living</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-city text-red-500 mr-2"></i> Urban Areas
+                        </h4>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Better access to services (healthcare, education)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>More employment opportunities in formal sector</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times-circle text-red-500 mt-1 mr-2"></i>
+                                <span>Higher cost of living, especially housing</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times-circle text-red-500 mt-1 mr-2"></i>
+                                <span>Traffic congestion and pollution challenges</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-tree text-red-500 mr-2"></i> Rural Areas
+                        </h4>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Lower cost of living, subsistence farming possible</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Stronger community ties and traditions</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times-circle text-red-500 mt-1 mr-2"></i>
+                                <span>Limited access to quality healthcare and schools</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times-circle text-red-500 mt-1 mr-2"></i>
+                                <span>Vulnerable to climate shocks and price fluctuations</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-2xl font-semibold mb-4 text-red-700">Education & Healthcare</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <div class="flex items-center mb-3">
+                            <div class="bg-red-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-graduation-cap text-red-600 text-xl"></i>
+                            </div>
+                            <h4 class="font-bold text-lg">Education System</h4>
+                        </div>
+                        <p class="text-gray-700 mb-2">Uganda implemented Universal Primary Education (UPE) in 1997 and Universal Secondary Education (USE) in 2007, significantly increasing enrollment.</p>
+                        <p class="text-gray-700">Challenges remain in quality, with high pupil-teacher ratios and low completion rates, especially for girls in rural areas.</p>
+                    </div>
+                    <div>
+                        <div class="flex items-center mb-3">
+                            <div class="bg-red-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-hospital text-red-600 text-xl"></i>
+                            </div>
+                            <h4 class="font-bold text-lg">Healthcare Access</h4>
+                        </div>
+                        <p class="text-gray-700 mb-2">Public healthcare is theoretically free but often lacks medicines and personnel. Private healthcare is expensive for most Ugandans.</p>
+                        <p class="text-gray-700">Major health challenges include malaria, HIV/AIDS (prevalence 5.2%), maternal mortality, and emerging non-communicable diseases.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Section -->
+    <section id="culture" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-purple-800">Culture & Ethnic Diversity</h2>
+            
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold mb-4 text-purple-700">Ethnic Groups</h3>
+                <p class="text-gray-700 mb-4">Uganda is home to over 50 distinct ethnic groups, each with its own traditions, languages, and cultural practices. The major groups include:</p>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                        <h4 class="font-bold mb-2">Baganda</h4>
+                        <p class="text-sm text-gray-600">16.5% of population, Central region, Buganda Kingdom</p>
+                    </div>
+                    <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                        <h4 class="font-bold mb-2">Banyankole</h4>
+                        <p class="text-sm text-gray-600">9.6% of population, Western region, Ankole Kingdom</p>
+                    </div>
+                    <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                        <h4 class="font-bold mb-2">Basoga</h4>
+                        <p class="text-sm text-gray-600">8.8% of population, Eastern region, Busoga Kingdom</p>
+                    </div>
+                    <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                        <h4 class="font-bold mb-2">Acholi</h4>
+                        <p class="text-sm text-gray-600">4.4% of population, Northern region</p>
+                    </div>
+                </div>
+                
+                <p class="text-gray-700">English is the official language, while Swahili is promoted as a regional lingua franca. Luganda is widely spoken in central Uganda.</p>
+            </div>
+            
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold mb-6 text-purple-700">Cultural Traditions</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                        <img src="https://images.unsplash.com/photo-1593081891731-fda0877988da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Ugandan dance" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-bold mb-2">Music & Dance</h4>
+                            <p class="text-gray-600">Traditional dances like the Baganda's Amagunjju and Banyankole's Ekitaguriro feature elaborate costumes and drumming.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                        <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1071&q=80" alt="Ugandan food" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-bold mb-2">Cuisine</h4>
+                            <p class="text-gray-600">Staple foods include matooke (steamed bananas), posho (maize flour), beans, and groundnut sauce. Rolex (chapati with eggs) is a popular street food.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                        <img src="https://images.unsplash.com/photo-1604537529428-15bcbeecfe4d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Ugandan crafts" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h4 class="font-bold mb-2">Arts & Crafts</h4>
+                            <p class="text-gray-600">Traditional crafts include bark cloth making, basket weaving, and wood carving. Contemporary Ugandan artists blend traditional and modern styles.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold mb-4 text-purple-700">Religious Diversity</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <div class="text-purple-500 text-4xl mb-3">
+                            <i class="fas fa-church"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">Christianity</h4>
+                        <p class="text-gray-600">85% of population (39% Catholic, 32% Anglican, 11% Pentecostal, 3% other)</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <div class="text-purple-500 text-4xl mb-3">
+                            <i class="fas fa-mosque"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">Islam</h4>
+                        <p class="text-gray-600">14% of population, mostly Sunni with small Shia minority</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <div class="text-purple-500 text-4xl mb-3">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">Traditional/Other</h4>
+                        <p class="text-gray-600">1% practice indigenous beliefs or other religions</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-2xl font-semibold mb-4 text-purple-700">Social Norms & Etiquette</h3>
+                <div class="bg-purple-50 p-6 rounded-lg">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold mb-2 flex items-center">
+                                <i class="fas fa-handshake text-purple-600 mr-2"></i> Greetings
+                            </h4>
+                            <p class="text-gray-700">Greetings are important in Ugandan culture. Handshakes are common, often lasting longer than in Western cultures. It's polite to inquire about family and health.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-2 flex items-center">
+                                <i class="fas fa-utensils text-purple-600 mr-2"></i> Dining Etiquette
+                            </h4>
+                            <p class="text-gray-700">It's customary to wash hands before eating, as many foods are eaten by hand. Guests are often served first, and refusing food can be seen as impolite.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-2 flex items-center">
+                                <i class="fas fa-user-tie text-purple-600 mr-2"></i> Dress Code
+                            </h4>
+                            <p class="text-gray-700">Modest dress is appreciated, especially in rural areas and religious settings. Women often wear gomesi (traditional dress) for formal occasions.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-2 flex items-center">
+                                <i class="fas fa-users text-purple-600 mr-2"></i> Family Values
+                            </h4>
+                            <p class="text-gray-700">Extended family is central to Ugandan society, with strong obligations to relatives. Elders are highly respected and often involved in decision-making.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tourism Section -->
+    <section id="tourism" class="py-16 bg-yellow-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-yellow-800">Tourism & Hospitality</h2>
+            
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold mb-4 text-yellow-700">Top Tourist Destinations</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Gorilla Trekking" class="w-full h-48 object-cover">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                                <h4 class="font-bold text-white">Gorilla Trekking</h4>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <p class="text-gray-600 mb-3">Bwindi Impenetrable Forest and Mgahinga Gorilla National Park offer once-in-a-lifetime encounters with mountain gorillas.</p>
+                            <div class="flex justify-between text-sm text-gray-500">
+                                <span><i class="fas fa-map-marker-alt mr-1"></i> Southwest</span>
+                                <span><i class="fas fa-dollar-sign mr-1"></i> Permit: $700</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1602088113235-229c19758e9f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1067&q=80" alt="Wildlife Safaris" class="w-full h-48 object-cover">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                                <h4 class="font-bold text-white">Wildlife Safaris</h4>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <p class="text-gray-600 mb-3">Queen Elizabeth, Murchison Falls, and Kidepo Valley National Parks offer exceptional game viewing with fewer crowds than East African neighbors.</p>
+                            <div class="flex justify-between text-sm text-gray-500">
+                                <span><i class="fas fa-map-marker-alt mr-1"></i> Various</span>
+                                <span><i class="fas fa-dollar-sign mr-1"></i> From $50/day</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1581431886211-8b4c9fa914cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Nile Adventures" class="w-full h-48 object-cover">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                                <h4 class="font-bold text-white">Nile Adventures</h4>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <p class="text-gray-600 mb-3">Jinja offers world-class white-water rafting, bungee jumping, kayaking, and boat cruises at the source of the Nile River.</p>
+                            <div class="flex justify-between text-sm text-gray-500">
+                                <span><i class="fas fa-map-marker-alt mr-1"></i> Jinja</span>
+                                <span><i class="fas fa-dollar-sign mr-1"></i> From $100</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold mb-6 text-yellow-700">Hospitality Industry</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="text-yellow-500 text-4xl mb-4">
+                            <i class="fas fa-hotel"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Accommodation</h4>
+                        <p class="text-gray-600">Range from luxury lodges ($300+/night) to budget hostels ($10/night). Kampala has international chains, while parks feature eco-lodges.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="text-yellow-500 text-4xl mb-4">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Dining</h4>
+                        <p class="text-gray-600">International cuisine available in cities. Try local dishes like luwombo (steamed meat/veg in banana leaves) or katogo (matooke stew).</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="text-yellow-500 text-4xl mb-4">
+                            <i class="fas fa-bus"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Transport</h4>
+                        <p class="text-gray-600">Domestic flights connect major parks. Private hire cars and boda bodas (motorcycle taxis) are common in cities. Tour operators offer packages.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold mb-4 text-yellow-700">Travel Essentials</h3>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div>
+                            <h4 class="font-bold mb-3 flex items-center">
+                                <i class="fas fa-passport text-yellow-600 mr-2"></i> Visas
+                            </h4>
+                            <p class="text-gray-600">Most visitors need a visa ($50 single entry). Available on arrival or online through <a href="https://visas.immigration.go.ug/" class="text-blue-500 hover:underline">Uganda's e-visa system</a>.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-3 flex items-center">
+                                <i class="fas fa-syringe text-yellow-600 mr-2"></i> Health
+                            </h4>
+                            <p class="text-gray-600">Yellow fever vaccination required. Malaria prophylaxis recommended. Drink bottled water and avoid raw vegetables.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-3 flex items-center">
+                                <i class="fas fa-shield-alt text-yellow-600 mr-2"></i> Safety
+                            </h4>
+                            <p class="text-gray-600">Generally safe for tourists. Exercise normal precautions. Avoid political gatherings and border areas with DRC/South Sudan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-2xl font-semibold mb-4 text-yellow-700">Cultural Tips for Visitors</h3>
+                <div class="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Greet people properly before conversations or requests</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Ask permission before photographing people</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Dress modestly, especially in rural areas and religious sites</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Use your right hand for eating and giving/receiving items</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Haggling is expected in markets but be respectful</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wildlife Section -->
+    <section id="wildlife" class="py-16 bg-green-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-green-800">Wildlife & Nature</h2>
+            
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold mb-6 text-green-700">Iconic Species</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                        <img src="https://images.unsplash.com/photo-1551085254-e96b210db58a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Mountain Gorilla" class="w-full h-32 object-cover rounded mb-2">
+                        <h4 class="font-bold">Mountain Gorilla</h4>
+                        <p class="text-sm text-gray-600">Bwindi & Mgahinga</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                        <img src="https://images.unsplash.com/photo-1505148230895-d9a785a555fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="African Elephant" class="w-full h-32 object-cover rounded mb-2">
+                        <h4 class="font-bold">African Elephant</h4>
+                        <p class="text-sm text-gray-600">Queen Elizabeth NP</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                        <img src="https://images.unsplash.com/photo-1534188753412-3e26d0d618d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Tree-climbing Lion" class="w-full h-32 object-cover rounded mb-2">
+                        <h4 class="font-bold">Tree-climbing Lion</h4>
+                        <p class="text-sm text-gray-600">Ishasha Sector</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                        <img src="https://images.unsplash.com/photo-1579165466741-7e1b5d4d253e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Shoebill Stork" class="w-full h-32 object-cover rounded mb-2">
+                        <h4 class="font-bold">Shoebill Stork</h4>
+                        <p class="text-sm text-gray-600">Mabamba Swamp</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                        <img src="https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Chimpanzee" class="w-full h-32 object-cover rounded mb-2">
+                        <h4 class="font-bold">Chimpanzee</h4>
+                        <p class="text-sm text-gray-600">Kibale Forest</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                        <img src="https://images.unsplash.com/photo-1561737420-5d6ca3e221d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Rothschild Giraffe" class="w-full h-32 object-cover rounded mb-2">
+                        <h4 class="font-bold">Rothschild Giraffe</h4>
+                        <p class="text-sm text-gray-600">Murchison Falls</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                        <img src="https://images.unsplash.com/photo-1566438480900-0609be27a4be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1790&q=80" alt="Rwenzori Duiker" class="w-full h-32 object-cover rounded mb-2">
+                        <h4 class="font-bold">Rwenzori Duiker</h4>
+                        <p class="text-sm text-gray-600">Rwenzori Mountains</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                        <img src="https://images.unsplash.com/photo-1589652040683-1e50f47c5a3d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="African Fish Eagle" class="w-full h-32 object-cover rounded mb-2">
+                        <h4 class="font-bold">African Fish Eagle</h4>
+                        <p class="text-sm text-gray-600">Lake Victoria</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold mb-6 text-green-700">Protected Areas</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="font-bold text-lg mb-3">National Parks</h4>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-tree text-green-500 mt-1 mr-2"></i>
+                                <span>Bwindi Impenetrable NP (gorillas)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-tree text-green-500 mt-1 mr-2"></i>
+                                <span>Queen Elizabeth NP (tree-climbing lions)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-tree text-green-500 mt-1 mr-2"></i>
+                                <span>Murchison Falls NP (Nile waterfalls)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-tree text-green-500 mt-1 mr-2"></i>
+                                <span>Kidepo Valley NP (wilderness experience)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-tree text-green-500 mt-1 mr-2"></i>
+                                <span>10 parks total covering 8% of Uganda</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="font-bold text-lg mb-3">Conservation Successes</h4>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Mountain gorilla population increased from 300 in 1980s to 459 today</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Rhino reintroduction at Ziwa Rhino Sanctuary</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Community conservation programs like Bwindi Mgahinga Conservation Trust</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>20% of tourism revenue shared with local communities</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-2xl font-semibold mb-4 text-green-700">Threats & Conservation Challenges</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="text-red-500 text-4xl mb-3">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Deforestation</h4>
+                        <p class="text-gray-600">Uganda loses about 90,000 hectares of forest annually due to agriculture, charcoal production, and settlement.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="text-red-500 text-4xl mb-3">
+                            <i class="fas fa-paw"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Poaching</h4>
+                        <p class="text-gray-600">Despite anti-poaching efforts, bushmeat trade and ivory poaching remain threats to wildlife populations.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="text-red-500 text-4xl mb-3">
+                            <i class="fas fa-tractor"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Human-Wildlife Conflict</h4>
+                        <p class="text-gray-600">Crop raiding by elephants and other animals leads to conflicts with local communities near protected areas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenges Section -->
+    <section id="challenges" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Disputes & Challenges</h2>
+            
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold mb-6 text-gray-700">Key Issues Facing Uganda</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="text-gray-600 text-4xl mb-3">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Political Unrest</h4>
+                        <p class="text-gray-600">Election violence, opposition suppression, and restrictions on civil liberties continue to challenge Uganda's democratic development.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="text-gray-600 text-4xl mb-3">
+                            <i class="fas fa-users-slash"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Tribal Tensions</h4>
+                        <p class="text-gray-600">Historical grievances between northern and southern groups, and land disputes between pastoralists and farmers create periodic conflicts.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="text-gray-600 text-4xl mb-3">
+                            <i class="fas fa-cloud-sun"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Climate Change</h4>
+                        <p class="text-gray-600">Erratic rainfall, droughts, and floods threaten agriculture which employs 72% of Ugandans, increasing food insecurity.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="text-gray-600 text-4xl mb-3">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Youth Unemployment</h4>
+                        <p class="text-gray-600">83% of unemployed Ugandans are youth (18-30 years), creating social tensions despite economic growth.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold mb-6 text-gray-700">Social Challenges</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-female text-pink-500 mr-2"></i> Gender Inequality
+                        </h4>
+                        <p class="text-gray-600">Despite progress, women face higher illiteracy rates (23% vs 14% for men), gender-based violence, and underrepresentation in politics (34% of parliament).</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-heartbeat text-red-500 mr-2"></i> Health Issues
+                        </h4>
+                        <p class="text-gray-600">Malaria causes 27% of deaths. HIV prevalence is 5.2%. Maternal mortality remains high at 336 deaths per 100,000 live births.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-graduation-cap text-blue-500 mr-2"></i> Education Quality
+                        </h4>
+                        <p class="text-gray-600">While enrollment has increased, only 30% of P3 pupils can read a P2 level story. Teacher absenteeism averages 30%.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-2xl font-semibold mb-6 text-gray-700">Ongoing Efforts & Solutions</h3>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div>
+                            <h4 class="font-bold mb-3 flex items-center">
+                                <i class="fas fa-leaf text-green-500 mr-2"></i> Environmental
+                            </h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>National Climate Change Policy (2015)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>Reforestation initiatives like National Tree Planting Day</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-3 flex items-center">
+                                <i class="fas fa-hand-holding-heart text-red-500 mr-2"></i> Social
+                            </h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>Universal Primary/Secondary Education policies</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>Youth livelihood programs and vocational training</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-3 flex items-center">
+                                <i class="fas fa-balance-scale text-blue-500 mr-2"></i> Governance
+                            </h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>Anti-corruption agencies like IGG</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>Decentralization to local governments</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Opportunities Section -->
+    <section id="opportunities" class="py-16 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-blue-800">Opportunities & Innovation</h2>
+            
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold mb-6 text-blue-700">Emerging Sectors</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="text-blue-500 text-4xl mb-3">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Fintech</h4>
+                        <p class
+</body>
+</html>
