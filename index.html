@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explore Uganda - The Good. The Bad. The Real.</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='%2334d399' d='M256 32c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9L264 96.6l-14.7-14.7c-9.1-9.1-22.9-11.9-34.9-6.9S224 19.1 224 32v96c0 17.7 14.3 32 32 32s32-14.3 32-32V32zm-96 96c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7 14.3 32 32 32s32-14.3 32-32V128zm192 0c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7 14.3 32 32 32s32-14.3 32-32V128zM256 288c-35.3 0-64 28.7-64 64s28.7 64 64 64 64-28.7 64-64-28.7-64-64-64zm-96 64c0-35.3-28.7-64-64-64s-64 28.7-64 64 28.7 64 64 64 64-28.7 64-64zm192 0c0-35.3-28.7-64-64-64s-64 28.7-64 64 28.7 64 64 64 64-28.7 64-64z'/></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -117,17 +118,7 @@
         </div>
     </section>
 
-    <!-- Search Bar -->
-    <section class="bg-white py-6 shadow-md">
-        <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto relative">
-                <input type="text" placeholder="Search the Uganda directory..." class="w-full py-3 px-6 pr-12 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500">
-                <button class="absolute right-3 top-3 text-gray-500 hover:text-green-700">
-                    <i class="fas fa-search text-xl"></i>
-                </button>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Geography Section -->
     <section id="geography" class="py-16 bg-gray-50">
@@ -139,12 +130,28 @@
                     <h3 class="text-2xl font-semibold mb-4 text-green-700">Uganda's Physical Landscape</h3>
                     <p class="text-gray-700 mb-4">Uganda, often called the "Pearl of Africa," boasts diverse geographical features including the snow-capped Rwenzori Mountains, the vast Lake Victoria (Africa's largest lake), and the mighty Nile River which begins its journey from Jinja.</p>
                     <p class="text-gray-700 mb-4">The country's landscape varies from tropical rainforests in the west to semi-arid savannas in the northeast, offering breathtaking scenery and unique ecosystems.</p>
+                    
+                    <h4 class="text-lg font-semibold mb-3 text-green-600">Geographical Regions</h4>
+                    <p class="text-gray-700 mb-3">Uganda is divided into four main geographical regions: the Central Plateau, the Western Rift Valley, the Eastern Highlands, and the Northern Plains. The Central Plateau, where Kampala is located, features rolling hills and fertile soils ideal for agriculture.</p>
+                    
+                    <h4 class="text-lg font-semibold mb-3 text-green-600">Mountain Ranges & Peaks</h4>
+                    <p class="text-gray-700 mb-3">The Rwenzori Mountains in the west reach heights of over 5,000 meters, with permanent snow and glaciers despite being near the equator. Mount Elgon, an extinct volcano on the eastern border, offers spectacular hiking trails and crater lakes.</p>
+                    
+                    <h4 class="text-lg font-semibold mb-3 text-green-600">Water Bodies & Rivers</h4>
+                    <p class="text-gray-700 mb-3">Lake Victoria, the world's second-largest freshwater lake, dominates the south-central region. The Nile River flows northward from Jinja, creating dramatic waterfalls like Murchison Falls. Numerous crater lakes dot the western region, including the famous Lake Bunyonyi.</p>
+                    
+                    <h4 class="text-lg font-semibold mb-3 text-green-600">Climate & Vegetation</h4>
+                    <p class="text-gray-700 mb-4">Uganda enjoys a tropical climate with two rainy seasons. The southwest receives heavy rainfall supporting dense rainforests, while the northeast experiences semi-arid conditions with acacia savannas. This climatic diversity creates distinct ecosystems and wildlife habitats.</p>
+                    
                     <div class="flex flex-wrap gap-2 mt-6">
                         <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Mountains</span>
                         <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Lakes</span>
                         <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">Savannas</span>
                         <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Forests</span>
                         <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Volcanoes</span>
+                        <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Crater Lakes</span>
+                        <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">Plateaus</span>
+                        <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm">Wetlands</span>
                     </div>
                 </div>
                 <div class="map-container rounded-lg shadow-lg">
@@ -155,42 +162,42 @@
             <h3 class="text-2xl font-semibold mb-6 text-center text-green-700">Must-Visit Natural Attractions</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 gallery-item">
-                    <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Bwindi Impenetrable Forest" class="w-full h-48 object-cover">
+                    <img src="bwindi.jpg" alt="Bwindi Impenetrable Forest" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h4 class="font-bold text-lg mb-2">Bwindi Impenetrable Forest</h4>
                         <p class="text-gray-600">Home to nearly half of the world's remaining mountain gorillas, this UNESCO World Heritage Site offers unforgettable gorilla trekking experiences.</p>
                     </div>
                 </div>
                 <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 gallery-item">
-                    <img src="https://images.unsplash.com/photo-1570891836654-d4961a7b6929?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Murchison Falls" class="w-full h-48 object-cover">
+                    <img src="murchison falls.jpg" alt="Murchison Falls" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h4 class="font-bold text-lg mb-2">Murchison Falls</h4>
                         <p class="text-gray-600">Where the Nile River forces its way through a narrow gorge and plunges 43 meters, creating one of Africa's most powerful waterfalls.</p>
                     </div>
                 </div>
                 <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 gallery-item">
-                    <img src="https://images.unsplash.com/photo-1602088113235-229c19758e9f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1067&q=80" alt="Queen Elizabeth National Park" class="w-full h-48 object-cover">
+                    <img src="qeen elizabeth.jpg" alt="Queen Elizabeth National Park" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h4 class="font-bold text-lg mb-2">Queen Elizabeth NP</h4>
                         <p class="text-gray-600">Uganda's most visited park with diverse ecosystems including savanna, wetlands, and forests, famous for its tree-climbing lions.</p>
                     </div>
                 </div>
                 <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 gallery-item">
-                    <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Lake Bunyonyi" class="w-full h-48 object-cover">
+                    <img src="lake bunyonyi.jpg" alt="Lake Bunyonyi" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h4 class="font-bold text-lg mb-2">Lake Bunyonyi</h4>
                         <p class="text-gray-600">Africa's second deepest lake, known as "the place of many little birds," with stunning terraced hills and 29 islands.</p>
                     </div>
                 </div>
                 <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 gallery-item">
-                    <img src="https://images.unsplash.com/photo-1566438480900-0609be27a4be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1790&q=80" alt="Rwenzori Mountains" class="w-full h-48 object-cover">
+                    <img src="mount rwenzori.jpg" alt="Rwenzori Mountains" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h4 class="font-bold text-lg mb-2">Rwenzori Mountains</h4>
                         <p class="text-gray-600">The fabled "Mountains of the Moon" with permanent snow and glaciers near the equator, offering challenging trekking routes.</p>
                     </div>
                 </div>
                 <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 gallery-item">
-                    <img src="https://images.unsplash.com/photo-1581431886211-8b4c9fa914cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Jinja - Source of the Nile" class="w-full h-48 object-cover">
+                    <img src="jinja source of the nile.jpg" alt="Jinja - Source of the Nile" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h4 class="font-bold text-lg mb-2">Jinja - Source of the Nile</h4>
                         <p class="text-gray-600">Where the world's longest river begins its journey, offering white-water rafting, bungee jumping, and boat cruises.</p>
@@ -487,6 +494,63 @@
                     </div>
                 </div>
                 
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                        <h4 class="font-bold mb-2">Iteso</h4>
+                        <p class="text-sm text-gray-600">6.0% of population, Eastern region, Teso sub-region</p>
+                    </div>
+                    <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                        <h4 class="font-bold mb-2">Alur</h4>
+                        <p class="text-sm text-gray-600">2.7% of population, Northwestern region, West Nile</p>
+                    </div>
+                    <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                        <h4 class="font-bold mb-2">Karamojong</h4>
+                        <p class="text-sm text-gray-600">2.4% of population, Northeastern region, Karamoja</p>
+                    </div>
+                    <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                        <h4 class="font-bold mb-2">Lugbara</h4>
+                        <p class="text-sm text-gray-600">3.5% of population, Northwestern region, West Nile</p>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                        <h4 class="font-bold mb-2">Sebei</h4>
+                        <p class="text-sm text-gray-600">1.2% of population, Eastern region, Mount Elgon</p>
+                    </div>
+                    <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                        <h4 class="font-bold mb-2">Banyoro</h4>
+                        <p class="text-sm text-gray-600">2.9% of population, Western region, Bunyoro Kingdom</p>
+                    </div>
+                    <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                        <h4 class="font-bold mb-2">Bakiga</h4>
+                        <p class="text-sm text-gray-600">7.1% of population, Southwestern region, Kigezi</p>
+                    </div>
+                    <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                        <h4 class="font-bold mb-2">Lang'i</h4>
+                        <p class="text-sm text-gray-600">1.8% of population, Northeastern region, Karamoja</p>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                        <h4 class="font-bold mb-2">Banyole</h4>
+                        <p class="text-sm text-gray-600">1.7% of population, Eastern region, Busoga</p>
+                    </div>
+                    <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                        <h4 class="font-bold mb-2">Bakonjo</h4>
+                        <p class="text-sm text-gray-600">1.1% of population, Western region, Rwenzori</p>
+                    </div>
+                    <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                        <h4 class="font-bold mb-2">Bamba</h4>
+                        <p class="text-sm text-gray-600">0.9% of population, Western region, Rwenzori</p>
+                    </div>
+                    <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                        <h4 class="font-bold mb-2">Other Groups</h4>
+                        <p class="text-sm text-gray-600">~15% of population, various smaller ethnic groups</p>
+                    </div>
+                </div>
+                
                 <p class="text-gray-700">English is the official language, while Swahili is promoted as a regional lingua franca. Luganda is widely spoken in central Uganda.</p>
             </div>
             
@@ -494,21 +558,21 @@
                 <h3 class="text-2xl font-semibold mb-6 text-purple-700">Cultural Traditions</h3>
                 <div class="grid md:grid-cols-3 gap-6">
                     <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                        <img src="https://images.unsplash.com/photo-1593081891731-fda0877988da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Ugandan dance" class="w-full h-48 object-cover">
+                        <img src="music dance and drama.jpg" alt="Ugandan dance" class="w-full h-48 object-cover">
                         <div class="p-4">
                             <h4 class="font-bold mb-2">Music & Dance</h4>
                             <p class="text-gray-600">Traditional dances like the Baganda's Amagunjju and Banyankole's Ekitaguriro feature elaborate costumes and drumming.</p>
                         </div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                        <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1071&q=80" alt="Ugandan food" class="w-full h-48 object-cover">
+                        <img src="cuisine.jpg" alt="Ugandan food" class="w-full h-48 object-cover">
                         <div class="p-4">
                             <h4 class="font-bold mb-2">Cuisine</h4>
                             <p class="text-gray-600">Staple foods include matooke (steamed bananas), posho (maize flour), beans, and groundnut sauce. Rolex (chapati with eggs) is a popular street food.</p>
                         </div>
                     </div>
                     <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                        <img src="https://images.unsplash.com/photo-1604537529428-15bcbeecfe4d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Ugandan crafts" class="w-full h-48 object-cover">
+                        <img src="arts adn craft.jpg" alt="Ugandan crafts" class="w-full h-48 object-cover">
                         <div class="p-4">
                             <h4 class="font-bold mb-2">Arts & Crafts</h4>
                             <p class="text-gray-600">Traditional crafts include bark cloth making, basket weaving, and wood carving. Contemporary Ugandan artists blend traditional and modern styles.</p>
@@ -588,7 +652,7 @@
                 <div class="grid md:grid-cols-3 gap-6">
                     <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
                         <div class="relative">
-                            <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Gorilla Trekking" class="w-full h-48 object-cover">
+                            <img src="gorilla treeking.jpg" alt="Gorilla Trekking" class="w-full h-48 object-cover">
                             <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
                                 <h4 class="font-bold text-white">Gorilla Trekking</h4>
                             </div>
@@ -603,7 +667,7 @@
                     </div>
                     <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
                         <div class="relative">
-                            <img src="https://images.unsplash.com/photo-1602088113235-229c19758e9f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1067&q=80" alt="Wildlife Safaris" class="w-full h-48 object-cover">
+                            <img src="wildlife safaris.jpg" alt="Wildlife Safaris" class="w-full h-48 object-cover">
                             <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
                                 <h4 class="font-bold text-white">Wildlife Safaris</h4>
                             </div>
@@ -618,7 +682,7 @@
                     </div>
                     <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
                         <div class="relative">
-                            <img src="https://images.unsplash.com/photo-1581431886211-8b4c9fa914cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Nile Adventures" class="w-full h-48 object-cover">
+                            <img src="nile adventures.jpg" alt="Nile Adventures" class="w-full h-48 object-cover">
                             <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
                                 <h4 class="font-bold text-white">Nile Adventures</h4>
                             </div>
@@ -726,42 +790,42 @@
                 <h3 class="text-2xl font-semibold mb-6 text-green-700">Iconic Species</h3>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div class="bg-white p-4 rounded-lg shadow-sm text-center">
-                        <img src="https://images.unsplash.com/photo-1551085254-e96b210db58a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Mountain Gorilla" class="w-full h-32 object-cover rounded mb-2">
+                        <img src="mountain gorillas.jpg" alt="Mountain Gorilla" class="w-full h-32 object-cover rounded mb-2">
                         <h4 class="font-bold">Mountain Gorilla</h4>
                         <p class="text-sm text-gray-600">Bwindi & Mgahinga</p>
                     </div>
                     <div class="bg-white p-4 rounded-lg shadow-sm text-center">
-                        <img src="https://images.unsplash.com/photo-1505148230895-d9a785a555fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="African Elephant" class="w-full h-32 object-cover rounded mb-2">
+                        <img src="african elephant.jpg" alt="African Elephant" class="w-full h-32 object-cover rounded mb-2">
                         <h4 class="font-bold">African Elephant</h4>
                         <p class="text-sm text-gray-600">Queen Elizabeth NP</p>
                     </div>
                     <div class="bg-white p-4 rounded-lg shadow-sm text-center">
-                        <img src="https://images.unsplash.com/photo-1534188753412-3e26d0d618d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Tree-climbing Lion" class="w-full h-32 object-cover rounded mb-2">
+                        <img src="tree climbing lions.jpg" alt="Tree-climbing Lion" class="w-full h-32 object-cover rounded mb-2">
                         <h4 class="font-bold">Tree-climbing Lion</h4>
                         <p class="text-sm text-gray-600">Ishasha Sector</p>
                     </div>
                     <div class="bg-white p-4 rounded-lg shadow-sm text-center">
-                        <img src="https://images.unsplash.com/photo-1579165466741-7e1b5d4d253e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Shoebill Stork" class="w-full h-32 object-cover rounded mb-2">
+                        <img src="shoebill stork.jpg" alt="Shoebill Stork" class="w-full h-32 object-cover rounded mb-2">
                         <h4 class="font-bold">Shoebill Stork</h4>
                         <p class="text-sm text-gray-600">Mabamba Swamp</p>
                     </div>
                     <div class="bg-white p-4 rounded-lg shadow-sm text-center">
-                        <img src="https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Chimpanzee" class="w-full h-32 object-cover rounded mb-2">
+                        <img src="chimpanzee.jpg" alt="Chimpanzee" class="w-full h-32 object-cover rounded mb-2">
                         <h4 class="font-bold">Chimpanzee</h4>
                         <p class="text-sm text-gray-600">Kibale Forest</p>
                     </div>
                     <div class="bg-white p-4 rounded-lg shadow-sm text-center">
-                        <img src="https://images.unsplash.com/photo-1561737420-5d6ca3e221d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Rothschild Giraffe" class="w-full h-32 object-cover rounded mb-2">
+                        <img src="rothschild giraffe.jpg" alt="Rothschild Giraffe" class="w-full h-32 object-cover rounded mb-2">
                         <h4 class="font-bold">Rothschild Giraffe</h4>
                         <p class="text-sm text-gray-600">Murchison Falls</p>
                     </div>
                     <div class="bg-white p-4 rounded-lg shadow-sm text-center">
-                        <img src="https://images.unsplash.com/photo-1566438480900-0609be27a4be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1790&q=80" alt="Rwenzori Duiker" class="w-full h-32 object-cover rounded mb-2">
+                        <img src="rwenzori duiker.jpg" alt="Rwenzori Duiker" class="w-full h-32 object-cover rounded mb-2">
                         <h4 class="font-bold">Rwenzori Duiker</h4>
                         <p class="text-sm text-gray-600">Rwenzori Mountains</p>
                     </div>
                     <div class="bg-white p-4 rounded-lg shadow-sm text-center">
-                        <img src="https://images.unsplash.com/photo-1589652040683-1e50f47c5a3d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="African Fish Eagle" class="w-full h-32 object-cover rounded mb-2">
+                        <img src="african fish eagle.jpg" alt="African Fish Eagle" class="w-full h-32 object-cover rounded mb-2">
                         <h4 class="font-bold">African Fish Eagle</h4>
                         <p class="text-sm text-gray-600">Lake Victoria</p>
                     </div>
@@ -980,6 +1044,215 @@
                             <i class="fas fa-mobile-alt"></i>
                         </div>
                         <h4 class="font-bold text-lg mb-2">Fintech</h4>
-                        <p class
+                        <p class="text-gray-600">Mobile money adoption is high with services like MTN Mobile Money and Airtel Money. Digital banking and fintech startups are growing rapidly.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="text-blue-500 text-4xl mb-3">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Agribusiness</h4>
+                        <p class="text-gray-600">Value addition to agricultural products, organic farming, and export opportunities in coffee, tea, and horticulture.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="text-blue-500 text-4xl mb-3">
+                            <i class="fas fa-solar-panel"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Renewable Energy</h4>
+                        <p class="text-gray-600">Solar power adoption, hydroelectric potential, and green energy initiatives are creating new business opportunities.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold mb-6 text-blue-700">Innovation Hubs</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-building text-blue-500 mr-2"></i> Kampala Innovation Hub
+                        </h4>
+                        <p class="text-gray-600">Supporting tech startups and entrepreneurs with mentorship, funding, and workspace in Uganda's capital.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="font-bold text-lg mb-3 flex items-center">
+                            <i class="fas fa-graduation-cap text-blue-500 mr-2"></i> University Incubators
+                        </h4>
+                        <p class="text-gray-600">Makerere University and other institutions are developing programs to support student entrepreneurship and innovation.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-2xl font-semibold mb-4 text-blue-700">Future Prospects</h3>
+                <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                    <p class="text-gray-700 mb-4">Uganda's young population, strategic location, and natural resources position it well for future growth. Key areas of potential include:</p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-blue-500 mt-1 mr-2"></i>
+                            <span>Regional trade hub development with improved infrastructure</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-blue-500 mt-1 mr-2"></i>
+                            <span>Tourism expansion beyond traditional safari experiences</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-blue-500 mt-1 mr-2"></i>
+                            <span>Manufacturing growth with East African Community integration</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-blue-500 mt-1 mr-2"></i>
+                            <span>Digital transformation and e-government services</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <!-- Main Footer Content -->
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- About Section -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-mountain-sun text-3xl text-green-400 mr-3"></i>
+                        <div>
+                            <h3 class="text-xl font-bold">Explore Uganda</h3>
+                            <p class="text-green-400 text-sm">The Good. The Bad. The Real.</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        A comprehensive, honest, and up-to-date directory about Uganda — its nature, culture, people, and realities. 
+                        We provide balanced perspectives on Uganda's achievements and challenges, helping visitors and researchers 
+                        understand this beautiful country better.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition-colors">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition-colors">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 text-green-400">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#geography" class="text-gray-300 hover:text-green-400 transition-colors">Geography & Nature</a></li>
+                        <li><a href="#government" class="text-gray-300 hover:text-green-400 transition-colors">Government & Politics</a></li>
+                        <li><a href="#people" class="text-gray-300 hover:text-green-400 transition-colors">People & Lifestyle</a></li>
+                        <li><a href="#culture" class="text-gray-300 hover:text-green-400 transition-colors">Culture & Traditions</a></li>
+                        <li><a href="#tourism" class="text-gray-300 hover:text-green-400 transition-colors">Tourism & Travel</a></li>
+                        <li><a href="#wildlife" class="text-gray-300 hover:text-green-400 transition-colors">Wildlife & Conservation</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Resources -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 text-green-400">Contact & Resources</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <i class="fas fa-envelope text-green-400 mt-1 mr-2"></i>
+                            <span class="text-gray-300">info@exploreuganda.com</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-phone text-green-400 mt-1 mr-2"></i>
+                            <span class="text-gray-300">+256 (0) 41 123 4567</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-green-400 mt-1 mr-2"></i>
+                            <span class="text-gray-300">Kampala, Uganda</span>
+                        </div>
+                    </div>
+                    
+                    <h5 class="font-semibold mt-4 mb-2 text-green-400">Official Resources</h5>
+                    <ul class="space-y-1 text-sm">
+                        <li><a href="https://www.ugandatourism.go.ug/" class="text-gray-300 hover:text-green-400 transition-colors">Uganda Tourism Board</a></li>
+                        <li><a href="https://www.immigration.go.ug/" class="text-gray-300 hover:text-green-400 transition-colors">Immigration Services</a></li>
+                        <li><a href="https://www.ugandaembassy.com/" class="text-gray-300 hover:text-green-400 transition-colors">Uganda Embassy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Bottom Footer -->
+        <div class="border-t border-gray-700">
+            <div class="container mx-auto px-4 py-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-gray-400 text-sm mb-4 md:mb-0">
+                        <p>&copy; 2024 Explore Uganda. All rights reserved.</p>
+                        <p class="mt-1">"The Pearl of Africa" - Winston Churchill</p>
+                    </div>
+                    <div class="flex space-x-6 text-sm">
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition-colors">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition-colors">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition-colors">Cookie Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition-colors">Accessibility</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Search functionality
+        const searchInput = document.querySelector('input[placeholder="Search the Uganda directory..."]');
+        const searchButton = document.querySelector('button i.fa-search').parentElement;
+        
+        searchButton.addEventListener('click', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+            if (searchTerm.trim() !== '') {
+                // Simple search implementation - scroll to relevant section
+                const sections = ['geography', 'government', 'people', 'culture', 'tourism', 'wildlife', 'challenges', 'opportunities'];
+                for (let section of sections) {
+                    if (section.includes(searchTerm) || searchTerm.includes(section)) {
+                        document.getElementById(section).scrollIntoView({ behavior: 'smooth' });
+                        break;
+                    }
+                }
+            }
+        });
+
+        // Add enter key support for search
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                searchButton.click();
+            }
+        });
+    </script>
 </body>
 </html>
