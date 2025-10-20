@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://the-pearl-of-africa.vercel.app/sitemap.xml
+
+# Allow all search engines to crawl the entire site
+# This enables Google, Bing, and other search engines to index all pages
+
+# Crawl-delay (optional - helps prevent overloading your server)
+Crawl-delay: 1
+
+# Disallow specific file types if needed (uncomment if you want to block these)
+# Disallow: *.pdf$
+# Disallow: *.doc$
+# Disallow: *.docx$
+
+# Allow access to CSS and JS files for proper rendering
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.gif
+Allow: /*.svg
+Allow: /*.webp

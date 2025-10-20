@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Home Page -->
+    <url>
+        <loc>https://yourdomain.com/</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- Main Index Page -->
+    <url>
+        <loc>https://the-pearl-of-africa.vercel.app/index.html</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- Geography Section -->
+    <url>
+        <loc>https://the-pearl-of-africa.vercel.app/#geography</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Government Section -->
+    <url>
+        <loc>https://the-pearl-of-africa.vercel.app/#government</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- People Section -->
+    <url>
+        <loc>https://the-pearl-of-africa.vercel.app/#people</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Culture Section -->
+    <url>
+        <loc>https://the-pearl-of-africa.vercel.app/#culture</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Tourism Section -->
+    <url>
+        <loc>https://the-pearl-of-africa.vercel.app/#tourism</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Wildlife Section -->
+    <url>
+        <loc>https://the-pearl-of-africa.vercel.app/#wildlife</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Challenges Section -->
+    <url>
+        <loc>https://the-pearl-of-africa.vercel.app/#challenges</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Opportunities Section -->
+    <url>
+        <loc>https://the-pearl-of-africa.vercel.app/#opportunities</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+</urlset>
